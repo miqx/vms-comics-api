@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+/* Place all routes that need token checking */
+Route::middleware(['tokenCheck'])->group(function () {
+
+    Route::get('/authors', 'authorsController@index');
+    Route::get('/comics/{authorId}', 'authorsController@authorComics');
+
 });
