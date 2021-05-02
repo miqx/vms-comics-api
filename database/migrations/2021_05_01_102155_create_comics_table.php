@@ -14,10 +14,11 @@ class CreateComicsTable extends Migration
     public function up()
     {
         Schema::create('comics', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title', 50);
-            $table->string('series_name', 50)->index();
-            $table->text('description');
+            //did not auto increment id because API supplies an comic_id
+            $table->integer('id')->primary()->unique();
+            $table->string('title', 100);
+            $table->string('series_name', 100)->index();
+            $table->text('description')->nullable();
             $table->integer('page_count');
             $table->string('thumbnail_url');
             $table->timestamps();

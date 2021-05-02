@@ -14,9 +14,10 @@ class CreateAuthorTable extends Migration
     public function up()
     {
         Schema::create('authors', function (Blueprint $table) {
-            $table->increments('id');
+            //did not auto increment id because API supplies an author_id
+            $table->integer('id')->primary()->unique();
             $table->string('first_name', 50);
-            $table->string('last_name', 50);
+            $table->string('last_name', 50)->nullable();
             $table->string('thumbnail_url');
             $table->timestamps();
         });
