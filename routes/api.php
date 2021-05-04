@@ -21,4 +21,7 @@ Route::middleware(['tokenCheck'])->group(function () {
     Route::get('/authors', 'authorsController@index');
     Route::get('/comics/{authorId}', 'authorsController@authorComics');
 
+    //get all comics for frontend
+    Route::get('/comics', 'comicsController@index');
+
 });
