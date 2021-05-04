@@ -15,8 +15,8 @@ class CreateAuthorComicsTable extends Migration
     {
         Schema::create('author_comics', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('author_id');
-            $table->integer('comic_id');
+            $table->integer('author_id')->index();
+            $table->integer('comic_id')->index();
         });
     }
 
